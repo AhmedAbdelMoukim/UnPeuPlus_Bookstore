@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<librairie nom="UnPeuPlus" devise="CAD">
+  <categorie nom="Informatique" icone="code" description="Des premières lignes de code aux grands algorithmes." />
+  <categorie nom="Affaires" icone="briefcase" description="Des idées pour entreprendre et faire grandir vos projets." />
+  <categorie nom="Technologie" icone="cpu" description="Comprendre les outils qui transforment notre quotidien." />
+</librairie>

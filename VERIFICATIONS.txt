@@ -1,0 +1,53 @@
+VÉRIFICATION DU PROJET UNPEUPLUS
+Date : 20 novembre 2026
+
+RÉSULTAT
+31 tests d'intégration réussis sur une copie Access isolée.
+25 contrôles de logique JavaScript et de structure HTML réussis.
+Compilation dynamique ASP.NET Framework 4.8 et réponses HTTP vérifiées sous
+IIS Express 32 bits. Syntaxe des scripts JavaScript vérifiée avec Node.js.
+
+COUVERTURE DES TESTS D'INTÉGRATION
+- 39 livres, trois catégories XML et trois ressources lues dans Access.
+- Nouveauté à la date du jour ; borne de six mois incluse ; date trop ancienne,
+  date future et échéance passée exclues.
+- Session anonyme ; historique interdit sans authentification ; contrôle CSRF
+  et refus de la déconnexion par GET.
+- Refus des mots de passe courts et codes postaux invalides.
+- Inscription avec accents et apostrophe ; unicité du nom d'utilisateur sans
+  distinction de casse ; déconnexion et reconnexion.
+- Conservation des coordonnées et du téléphone à dix chiffres.
+- Refus des stocks insuffisants, quantités négatives, lignes dupliquées et
+  livres inexistants. Un échec n'entraîne pas de modification du stock.
+- Commande multiple ; recalcul du total par le serveur ; conservation du prix
+  unitaire, de l'adresse et de l'historique.
+- Répétition d'une validation sans duplication de commande ni du débit de stock.
+- Isolation des historiques de deux comptes.
+- Deux clients concurrents : un seul peut commander le dernier exemplaire.
+- Historique retrouvé après une nouvelle connexion.
+- Téléchargement direct de la MDB interdit ; politique de sécurité HTTP.
+- Limitation des tentatives de connexion échouées.
+
+COUVERTURE DES CONTRÔLES DE L'INTERFACE
+Structure des pages et formulaires, balises fermées, identifiants uniques,
+association des libellés aux champs, pagination, filtres, recherche par ISBN
+et sans distinction de casse, absence de résultats, échappement HTML,
+panier vide et rempli, limitation des quantités, historique et confirmation.
+Ces vérifications exécutent les fonctions de l'interface dans Node.js avec
+des éléments de document simulés. Elles ne constituent pas un test visuel.
+
+BASE LIVRÉE
+La copie de travail contient les livres de la base d'origine, les extensions
+du schéma de commandes et les ressources. Aucun compte ni commande d'essai
+n'y a été laissé. Les tests utilisent leur propre copie dans .runtime.
+
+LIMITE DE VÉRIFICATION
+L'outil de contrôle de Chrome a interrompu la vérification visuelle car il
+ne pouvait pas identifier l'URL active avec suffisamment de certitude.
+Le rendu réel sur ordinateur et téléphone et la pagination d'impression
+restent à contrôler visuellement. Aucun test visuel réussi n'est revendiqué.
+
+REPRODUCTION
+powershell -ExecutionPolicy Bypass -File tools/test.ps1
+Le script lance et arrête sa propre instance de test sur le port 8086.
+Utiliser -Port 8087 si ce port est occupé.

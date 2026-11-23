@@ -1,0 +1,6 @@
+.runtime/
+**/*.ldb
+**/bin/
+**/obj/
+.vs/
+**/App_Data/librairie.mdb
